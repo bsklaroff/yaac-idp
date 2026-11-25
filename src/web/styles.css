@@ -1,0 +1,108 @@
+:root {
+  color-scheme: light dark;
+  --bg: light-dark(#f6f6f4, #141414);
+  --panel: light-dark(#fff, #1e1e1e);
+  --text: light-dark(#1a1a1a, #ececec);
+  --muted: light-dark(#666, #a0a0a0);
+  --border: light-dark(#d9d9d6, #363636);
+  --accent: light-dark(#1f5fd1, #7aa7ff);
+  --on-accent: light-dark(#fff, #10131a);
+  --danger: light-dark(#b3261e, #ff8a80);
+  font: 16px/1.5 system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+h1 { margin: 0 0 0.25rem; font-size: 1.4rem; }
+h2 { margin: 0 0 0.75rem; font-size: 1.1rem; }
+p { margin: 0 0 1rem; }
+.muted { color: var(--muted); }
+.error { color: var(--danger); }
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.sign-in {
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+  padding: 1rem;
+}
+.sign-in .panel { width: min(100%, 24rem); }
+
+.admin {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+form { display: grid; gap: 0.75rem; }
+label { display: grid; gap: 0.25rem; font-size: 0.9rem; color: var(--muted); }
+
+input, textarea {
+  font: inherit;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.6rem 0.75rem;
+  width: 100%;
+}
+input:focus-visible, textarea:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+input.code { font-size: 1.5rem; letter-spacing: 0.4em; text-align: center; }
+
+button {
+  font: inherit;
+  font-weight: 600;
+  color: var(--on-accent);
+  background: var(--accent);
+  border: 0;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+}
+button:disabled { opacity: 0.6; cursor: default; }
+button.plain {
+  color: var(--accent);
+  background: none;
+  padding: 0;
+  font-weight: 400;
+  justify-self: start;
+}
+button.danger { color: var(--danger); }
+
+ul.rows { list-style: none; margin: 0 0 1rem; padding: 0; }
+ul.rows li {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+}
+ul.rows li > div { min-width: 0; overflow-wrap: anywhere; }
+
+dl.secret {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.25rem 1rem;
+  margin: 0 0 1rem;
+}
+dl.secret dd { margin: 0; }
+code { font: 0.9em ui-monospace, monospace; overflow-wrap: anywhere; }

@@ -1,0 +1,5 @@
+# A release at least a week old has had time for a bad publish to be noticed
+# and pulled. Exempt a package here only at one exact version, with the reason.
+minimumReleaseAge: 10080
+allowBuilds:
+  esbuild: false

@@ -1,0 +1,7 @@
+{
+  "install": { "run": "pnpm install --frozen-lockfile" },
+  "build":   { "run": "pnpm build", "needs": ["install"] },
+  "migrate": { "run": "pnpm db:migrate", "needs": ["volume", "build"] },
+  "server":  { "run": "pnpm start", "service": true, "needs": ["volume", "migrate"],
+               "ready": "curl -sf localhost:3001/ready" }
+}
